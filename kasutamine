@@ -17,3 +17,12 @@ cd skriptimine
 
 d)tekita lokaalne repositoorium git s[steemi jaoks antud kaustas
 git init
+
+
+remote seadistamine:
+
+a) git remote add nimi aadress
+git remote add rsha https://github.com/kasutajanimi/reponimi.git
+
+b) git remote kontroll
+git remote -v
