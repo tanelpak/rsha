@@ -26,3 +26,15 @@ git remote add rsha https://github.com/kasutajanimi/reponimi.git
 
 b) git remote kontroll
 git remote -v
+
+
+pohikasutamine:
+
+a) pane fail j2lgimisele
+git add failinimi
+
+b) lisa kirjeldus muudatuse kohta
+git commit -m "kirjeldus"
+
+c) lisa kaugrepositooriumi
+git push -m kaust master
