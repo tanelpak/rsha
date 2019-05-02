@@ -1,5 +1,5 @@
 #!/bin/bash
 echo -n "Enter the username: "
 read username
-
-adduser "$username"
+useradd -s /bin/bash -m -d /home/$username "$username"
+echo "Valmis"
