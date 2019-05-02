@@ -1,18 +1,5 @@
 #!/bin/bash
-# Script to add a user to Linux system
-if [ $(id -u) -eq 0 ]; then
-	read -p "Sisesta kasutajanimi : " username
-	read -s -p "Sisesta parool : " password
-	egrep "^$username" /etc/passwd >/dev/null
-	if [ $? -eq 0 ]; then
-		echo "$Kasutaja olemas!"
-		exit 1
-	else
-		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
-		useradd -m -p $pass $username
-		[ $? -eq 0 ] && echo "Kasutaja lisatud!" || echo "Midagi läks valesti"
-	fi
-else
-	echo "Ainult root saab kasutajad lisada"
-	exit 2
-fi
+echo -n "Enter the username: "
+read username
+
+adduser "$username"
