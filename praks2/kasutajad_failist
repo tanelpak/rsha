@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# SKRIPT, MIS VÕTAB FAILIST KASUTAJANIMED JA LOOB KASUTAJAD
+#
+# Näitab, mis faili lugeda
+file="/home/tanel/rsha/praks2/kasutajad"
+# Teeb nii, et loeks ühe rea korraga
+while IFS= read -r line
+# Käivitab selle igal real
+do
+# Loob kasutaja
+sudo useradd -r -m -s /bin/bash $line
+# Eemaldab kasutaja parooli
+sudo passwd -d $line
+if [ $? -eq 0 ]; then
+        echo "kasutaja $1 on lisatud süsteemi"
+        cut /etc/passwd | grep $1
+else
+        echo "probleem kasutaja lisamisega"
+        echo $?
+fi
+done <"$file"
