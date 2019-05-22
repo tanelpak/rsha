@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+#
+#
+echo "Sisesta faili nimi"
+read fail
+input="./$fail"
+while IFS= read line
+do
+        kasutaja=$( echo "$line" | cut -d\: -f1 )
+        parool=$( echo "$line" | cut -d\: -f2  )
+# Command that adds user without password
+echo `/usr/sbin/useradd $kasutaja `
+echo $kasutaja:$parool | /usr/sbin/chpasswd
+done < "$fail"
