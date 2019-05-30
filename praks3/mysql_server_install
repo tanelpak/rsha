@@ -1,0 +1,11 @@
+
+#!/bin/bash
+chksql=$(which mysql | grep -c "")
+if [ $chksql -eq 0 ]
+then
+        echo "Paigaldame mysql-server"
+        apt install mysql-server -y
+else
+        echo "Mysql-server on juba paigaldatud"
+        systemctl status mysql
+fi
