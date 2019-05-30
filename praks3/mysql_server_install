@@ -1,5 +1,6 @@
 
 #!/bin/bash
+#kontrollib, kas mysql on olemas. Kui vastus 0 rida, siis ei ole ja kui muu vastus, siis on olemas
 chksql=$(which mysql | grep -c "")
 if [ $chksql -eq 0 ]
 then
