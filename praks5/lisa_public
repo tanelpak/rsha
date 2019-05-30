@@ -1,0 +1,20 @@
+
+#! /bin/bash
+#
+# Kasutaja public kasuta lisamise script
+# Kasutjanimi on määratud scripti parameetrina
+#
+if [ $# -ne 1 ]; then
+        echo "Kasutusjuhend: $0 kasutajanimi"
+else 
+        kasutajanimi=$1
+mkdir /home/$kasutajanimi/public && chown -R $kasutajanimi:$kasutajanimi /home/$kasutajanimi/public && chmo$
+
+        if [ $? -eq 0 ]; then
+                echo "Kasutaja nimega $kasutajanimi kodukasutas public loodud"
+                cat /etc/passwd | grep $kasutajanimi
+                ls -la /home/$kasutajanimi
+        else
+        echo "Probleem kasutaja $kasutajanimi lisamisega"
+        fi
+fi
