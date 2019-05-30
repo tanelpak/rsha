@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#
+# kontrollib, kas apache2 on olemas. Kui vastus 0 rida, siis on paigaldab ja kui 1, siis on juba olemas.
 APACHE2=$(dpkg-query -W -f='${Status}' apache2 2>/dev/null | grep -c "ok installed")
 if [ $APACHE2 -eq 0 ]
 then
