@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+#skripti algus
+#Vaatab kodukataloogidesse ja otsib public kausta"
+for kasutaja in $(ls /home)
+do
+ls /home/$kasutaja | grep public > /dev/null
+
+#kui kaust on puudu"
+if [  $? -eq 1 ];
+        then     # siis loob kausta ja määrab õigused
+        mkdir -p /home/$kasutaja/public && chown -R $kasutaja:$kasutaja /home/$kasutaja/public && chmod 751 /home/$$
+
+        if [ $? -eq 0 ]; then      #kui kaust on olemas , siis ütleb et on olemas ja näitab kasutaja kodukausta sisu
+                echo "kasutaja nimega $kasutaja kodukaustas on kaust nimega public juba loodud"
+                ls -la /home/$kasutaja
+        else
+                echo "probleem kasutaja $kasutaja lisamisega" #väljastab selle, et kasutajaga on probleem"
+                echo "probleemi kood on $?"   # ning väljastab veateate koodi
+        fi
+        else
+        echo "kasutaja nimega $kasutaja kodukaustas on public kaust olemas"
+fi
+done
+#
+#skripti lõpp
