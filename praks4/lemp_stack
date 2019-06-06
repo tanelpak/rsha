@@ -1,0 +1,20 @@
+
+#!/bin/bash
+#
+# Script paigaldab LEMP stacki koos wordpressiga.
+# Esmalt diable apache2, kuna see oli juba paigaldatud.
+# Järgmisena paigaldab script nginxi ja peale seda ülejäänud
+# vajaliku, mis olid juba eelnevate scriptidena loodud. Ülejäänud scriptid on 
+# praks3 kasutas githubis github.com/tanelpak/rsha/praks3
+
+systemctl disable apache2
+./nginx_install                         #Paigaldab nginx
+./install_php                           #Paigaldab php
+./mysql_install                         #Paigaldab mysqli
+./phpmyadmin_install                    #Paigaldab phpmyadmini
+./wordpress_install                     #Paigaldab wordpressi
+
+
+
+
+
